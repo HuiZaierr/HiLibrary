@@ -66,12 +66,12 @@ public class HiLog {
         //未开启直接return
         if (!config.enable()){
             return;
+        }else {
+            StringBuilder sb = new StringBuilder();
+            String body = parseBody(contents);
+            sb.append(body);
+            Log.println(type,tag,sb.toString());
         }
-
-        StringBuilder sb = new StringBuilder();
-        String body = parseBody(contents);
-        sb.append(body);
-        Log.println(type,tag,sb.toString());
     }
 
     private static String parseBody(Object[] contents) {
