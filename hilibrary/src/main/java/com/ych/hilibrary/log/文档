@@ -1,0 +1,52 @@
+1.log包下实现了两大类
+    1.1.实现了自定义的Log打印框架，可以根据开发需求，配置打印信息。
+        使用：
+            1.Application中配置全局的：
+                //配置Log信息
+                HiLogManager.init(object :HiLogConfig(){
+                                  //全局的Tag
+                                  override fun getGlobalTag(): String {
+                                      return "MAppliaction"
+                                  }
+                                  //是否开启
+                                  override fun enable(): Boolean {
+                                      return true
+                                  }
+                                  //是否引入线程信息
+                                  override fun includeThread(): Boolean {
+                                      return true
+                                  }
+                                  //打印堆栈的深度，如果为0，表示不打印
+                                  override fun stackTraceDepth(): Int {
+                                      return 5
+                                  }
+                                  //配置Json转化器
+                                  override fun injectJsonParser(): JsonParser {
+                                      return JsonParser { src ->  Gson().toJson(src)}
+                                  }
+
+                              },HiConsolePrinter())
+             2.在我们页面中使用：
+                //可以打印时配置局部的，也可以在Application中定义全局的。
+                HiLog.log(object: HiLogConfig(){
+                         override fun includeThread(): Boolean {
+                             return true
+                         }
+
+                         override fun stackTraceDepth(): Int {
+                             return 0
+                         }
+                    },HiLogType.E,"-----","5566778899")
+
+                HiLog.et("HAHAHAHAHA","8877665544")
+                HiLog.a("9999")
+
+    1.2.实现了可视化日志信息。直接在应用中看到打印信息。不需要开发工具。
+        使用：
+            //1.初始化
+            viewPrinter = HiViewPrinter(this)
+            //2.显示悬浮按钮
+            viewPrinter!!.viewProvider.showFloatingView()
+            //3.在打印处添加
+            HiLogManager.getInstance().addPrinter(viewPrinter)
+

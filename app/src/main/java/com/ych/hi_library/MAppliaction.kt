@@ -1,6 +1,8 @@
 package com.ych.hi_library
 
 import android.app.Application
+import com.google.gson.Gson
+import com.ych.hilibrary.log.HiConsolePrinter
 import com.ych.hilibrary.log.HiLogConfig
 import com.ych.hilibrary.log.HiLogManager
 
@@ -18,6 +20,19 @@ class MAppliaction: Application() {
             override fun enable(): Boolean {
                 return true
             }
-        })
+            //是否引入线程信息
+            override fun includeThread(): Boolean {
+                return true
+            }
+            //打印堆栈的深度，如果为0，表示不打印
+            override fun stackTraceDepth(): Int {
+                return 5
+            }
+            //配置Json转化器
+            override fun injectJsonParser(): JsonParser {
+                return JsonParser { src ->  Gson().toJson(src)}
+            }
+
+        },HiConsolePrinter())
     }
 }
