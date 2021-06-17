@@ -1,4 +1,4 @@
-package org.devio.hi.library.util
+package com.ych.hilibrary.util
 
 import android.app.Application
 import java.lang.Exception

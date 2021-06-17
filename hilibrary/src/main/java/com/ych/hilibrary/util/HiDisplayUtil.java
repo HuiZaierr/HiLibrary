@@ -6,10 +6,7 @@ import android.graphics.Point;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
-
 import androidx.annotation.NonNull;
-
-import org.devio.hi.library.util.AppGlobals;
 
 public class HiDisplayUtil {
     public static int dp2px(float dp, Resources resources) {
