@@ -6,15 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_test"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnHiLog"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="跳转"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="HiLog"
+        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnHiTabBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HiTabBottom"
+        app:layout_constraintTop_toBottomOf="@+id/btnHiLog" />
+
+    <com.ych.hiui.tab.bottom.HiTabBottom
+        android:id="@+id/tabBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

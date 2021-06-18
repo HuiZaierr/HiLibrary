@@ -4,9 +4,9 @@ import android.graphics.Bitmap;
 
 import androidx.fragment.app.Fragment;
 
-public class HiTabBottomInfo<Color> {
-    public enum TabType{
-        BITMAP,ICON
+public class HiTabBottomInfo<Color>{
+    public enum TabType {
+        BITMAP, ICON
     }
 
     public Class<? extends Fragment> fragment;
@@ -15,7 +15,7 @@ public class HiTabBottomInfo<Color> {
     public Bitmap selectedBitmap;
     public String iconFont;
     /**
-     * Tips:在Jav代码中直接设置iconfont字符串无效，需要定义在string.xml
+     * Tips：在Java代码中直接设置iconfont字符串无效，需要定义在string.xml
      */
     public String defaultIconName;
     public String selectedIconName;
