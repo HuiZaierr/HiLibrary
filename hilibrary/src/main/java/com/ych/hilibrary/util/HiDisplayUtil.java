@@ -18,7 +18,11 @@ public class HiDisplayUtil {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 
-
+    /**
+     * 获取屏幕宽度Px
+     * @param context
+     * @return
+     */
     public static int getDisplayWidthInPx(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm != null) {
@@ -31,6 +35,11 @@ public class HiDisplayUtil {
 
     }
 
+    /**
+     * 获取屏幕高度Px
+     * @param context
+     * @return
+     */
     public static int getDisplayHeightInPx(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm != null) {
