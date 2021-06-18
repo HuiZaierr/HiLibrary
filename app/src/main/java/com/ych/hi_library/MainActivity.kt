@@ -15,17 +15,6 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val homeInfo = HiTabBottomInfo(
-            "首页",
-            "fonts/iconfont.ttf",
-            getString(R.string.if_home),
-            null,
-            "#FF656667",
-            "#FFD44949")
-        tabBottom.setHiTabInfo(homeInfo)
-
-
-
         btnHiLog.setOnClickListener(this)
         btnHiTabBottom.setOnClickListener(this)
         HiDataBus.with<String>("stickyData").setStickyData("hahahahahahah")

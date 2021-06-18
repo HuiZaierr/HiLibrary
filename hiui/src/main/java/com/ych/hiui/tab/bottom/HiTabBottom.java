@@ -24,8 +24,8 @@ import com.ych.hiui.tab.common.IHiTab;
 public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInfo<?>> {
     private HiTabBottomInfo<?> tabInfo;
     private ImageView tabImageView;
-    private TextView tabIconView;
     private TextView tabNameView;
+    private ImageView tabIconView;
 
     public HiTabBottom(Context context) {
         this(context, null);
@@ -43,8 +43,8 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.hi_tab_bottom, this);
         tabImageView = findViewById(R.id.iv_image);
-        tabIconView = findViewById(R.id.tv_icon);
         tabNameView = findViewById(R.id.tv_name);
+        tabIconView = findViewById(R.id.iv_icon);
     }
 
     @Override
@@ -61,17 +61,16 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
         return tabImageView;
     }
 
-    public TextView getTabIconView() {
-        return tabIconView;
-    }
-
     public TextView getTabNameView() {
         return tabNameView;
     }
 
+    public ImageView getTabIconView() {
+        return tabIconView;
+    }
+
     /**
-     * 改变某个tab的高度
-     *
+     * 改变某个tab的高度,当使用大图的时候默认不显示底部文字信息
      * @param height
      */
     @Override
@@ -87,20 +86,16 @@ public class HiTabBottom extends RelativeLayout implements IHiTab<HiTabBottomInf
             if (init) {
                 tabImageView.setVisibility(GONE);
                 tabIconView.setVisibility(VISIBLE);
-                Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), tabInfo.iconFont);
-                tabIconView.setTypeface(typeface);
+                tabIconView.setImageBitmap(tabInfo.defaultIcon);
                 if (!TextUtils.isEmpty(tabInfo.name)) {
                     tabNameView.setText(tabInfo.name);
                 }
             }
-
             if (selected) {
-                tabIconView.setText(TextUtils.isEmpty(tabInfo.selectedIconName) ? tabInfo.defaultIconName : tabInfo.selectedIconName);
-                tabIconView.setTextColor(getTextColor(tabInfo.tintColor));
+                tabIconView.setImageBitmap(tabInfo.selectedIcon);
                 tabNameView.setTextColor(getTextColor(tabInfo.tintColor));
             } else {
-                tabIconView.setText(tabInfo.defaultIconName);
-                tabIconView.setTextColor(getTextColor(tabInfo.defaultColor));
+                tabIconView.setImageBitmap(tabInfo.defaultIcon);
                 tabNameView.setTextColor(getTextColor(tabInfo.defaultColor));
             }
 

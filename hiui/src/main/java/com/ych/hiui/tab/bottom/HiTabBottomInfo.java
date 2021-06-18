@@ -11,14 +11,14 @@ public class HiTabBottomInfo<Color>{
 
     public Class<? extends Fragment> fragment;
     public String name;
+    //只有图片的Tab
     public Bitmap defaultBitmap;
     public Bitmap selectedBitmap;
-    public String iconFont;
     /**
-     * Tips：在Java代码中直接设置iconfont字符串无效，需要定义在string.xml
+     * Tips：图片 下边有文字的图片
      */
-    public String defaultIconName;
-    public String selectedIconName;
+    public Bitmap defaultIcon;
+    public Bitmap selectedIcon;
     public Color defaultColor;
     public Color tintColor;
     public TabType tabType;
@@ -30,11 +30,10 @@ public class HiTabBottomInfo<Color>{
         this.tabType = TabType.BITMAP;
     }
 
-    public HiTabBottomInfo(String name, String iconFont, String defaultIconName, String selectedIconName, Color defaultColor, Color tintColor) {
+    public HiTabBottomInfo(String name, Bitmap defaultIcon, Bitmap selectedIcon, Color defaultColor, Color tintColor) {
         this.name = name;
-        this.iconFont = iconFont;
-        this.defaultIconName = defaultIconName;
-        this.selectedIconName = selectedIconName;
+        this.defaultIcon = defaultIcon;
+        this.selectedIcon = selectedIcon;
         this.defaultColor = defaultColor;
         this.tintColor = tintColor;
         this.tabType = TabType.ICON;

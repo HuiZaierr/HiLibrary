@@ -14,20 +14,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="4dp"
         android:scaleType="centerInside"
-        tools:src="@android:drawable/ic_input_add"
-        android:visibility="gone" />
+        tools:src="@mipmap/fire"
+        android:visibility="gone"/>
 
 
-    <TextView
-        android:id="@+id/tv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:layout_above="@id/tv_name"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="3dp"
-        android:textColor="#666666"
-        android:textSize="23dp"
-        android:textStyle="bold"
         android:visibility="gone" />
 
     <TextView
