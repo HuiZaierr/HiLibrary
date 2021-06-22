@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ych.hiui.tab.bottom.HiTabBottomLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_bottom_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <com.ych.common.tab.HiFragmentTabView
+        android:id="@+id/fragmnent_tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <Button
         android:id="@+id/btnHiLog"
@@ -27,11 +33,4 @@
         android:layout_height="wrap_content"
         android:text="DataBingActivity"
         app:layout_constraintTop_toBottomOf="@+id/btnHiTabBottom" />
-
-    <com.ych.hiui.tab.bottom.HiTabBottom
-        android:id="@+id/tabBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.ych.hiui.tab.bottom.HiTabBottomLayout>
