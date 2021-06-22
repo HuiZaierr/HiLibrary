@@ -21,6 +21,13 @@
         android:text="HiTabBottom"
         app:layout_constraintTop_toBottomOf="@+id/btnHiLog" />
 
+    <Button
+        android:id="@+id/btnDataBind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DataBingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/btnHiTabBottom" />
+
     <com.ych.hiui.tab.bottom.HiTabBottom
         android:id="@+id/tabBottom"
         android:layout_width="wrap_content"
