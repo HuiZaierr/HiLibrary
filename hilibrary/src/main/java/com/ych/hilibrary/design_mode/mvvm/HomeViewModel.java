@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModel;
 
 public class HomeViewModel extends ViewModel {
 
-    private SavedStateHandle savedState;
-    private HomeViewModel(SavedStateHandle savedState){
-        this.savedState = savedState;
-    }
+//    private SavedStateHandle savedState;
+//    private HomeViewModel(SavedStateHandle savedState){
+//        this.savedState = savedState;
+//    }
 
     public LiveData<User> getUserInfo(){
         MutableLiveData<User> liveData = new MutableLiveData<>();

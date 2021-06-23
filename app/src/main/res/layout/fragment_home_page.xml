@@ -14,4 +14,27 @@
         android:textSize="25sp"
         android:text="HomePage"/>
 
+
+    <Button
+        android:id="@+id/btnHiLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HiLog"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnDataBind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="DataBingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/btnHiLog" />
+
+    <Button
+        android:id="@+id/btnTabTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HiTabTopDemoActivity"
+        app:layout_constraintTop_toBottomOf="@+id/btnDataBind" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

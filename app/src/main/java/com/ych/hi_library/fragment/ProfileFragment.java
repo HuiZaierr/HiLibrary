@@ -8,4 +8,9 @@ public class ProfileFragment extends HiBaseFragment {
     public int getLayoutId() {
         return R.layout.fragment_profile;
     }
+
+    @Override
+    protected void initView() {
+
+    }
 }

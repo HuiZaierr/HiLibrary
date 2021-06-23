@@ -8,4 +8,9 @@ public class CategoryFragment extends HiBaseFragment {
     public int getLayoutId() {
         return R.layout.fragment_category;
     }
+
+    @Override
+    protected void initView() {
+
+    }
 }

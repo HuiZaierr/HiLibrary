@@ -30,6 +30,16 @@ public abstract class HiBaseFragment extends Fragment {
         return layoutView;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
+    }
+
+    /**
+     * init all views and add events
+     */
+    protected abstract void initView();
 
     //检测 宿主 是否还存活
     public boolean isAlive() {

@@ -3,6 +3,7 @@ package com.ych.hi_library
 import android.app.Application
 import com.google.gson.Gson
 import com.ych.hilibrary.log.HiConsolePrinter
+import com.ych.hilibrary.log.HiFilePrinter
 import com.ych.hilibrary.log.HiLogConfig
 import com.ych.hilibrary.log.HiLogManager
 
@@ -33,6 +34,8 @@ class MAppliaction: Application() {
                 return JsonParser { src ->  Gson().toJson(src)}
             }
 
-        },HiConsolePrinter())
+        },
+            HiConsolePrinter(),
+            HiFilePrinter.getInstance(applicationContext.cacheDir.absolutePath, 0))
     }
 }

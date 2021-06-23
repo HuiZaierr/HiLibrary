@@ -8,4 +8,9 @@ public class RecommendFragment extends HiBaseFragment {
     public int getLayoutId() {
         return R.layout.fragment_recommend;
     }
+
+    @Override
+    protected void initView() {
+
+    }
 }
