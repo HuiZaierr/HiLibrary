@@ -4,21 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.ych.hilibrary.util.HiDisplayUtil;
 
 /**
- * TODO：定义为抽象类，让所有视图实现。
- *      让用户实现各式各样的下拉刷新视图。
+ * 下拉刷新的Overlay视图,可以重载这个类来定义自己的Overlay
  */
 public abstract class HiOverView extends FrameLayout {
-    /**
-     * 下拉刷新状态
-     */
-   public enum HiRefreshState{
-
+    public enum HiRefreshState {
         /**
-         * 初始状态
+         * 初始态
          */
         STATE_INIT,
         /**
@@ -26,7 +20,11 @@ public abstract class HiOverView extends FrameLayout {
          */
         STATE_VISIBLE,
         /**
-         * 头部超出可刷新距离的状态
+         * 超出可刷新距离的状态
+         */
+        STATE_OVER,
+        /**
+         * 刷新中的状态
          */
         STATE_REFRESH,
         /**
@@ -35,33 +33,39 @@ public abstract class HiOverView extends FrameLayout {
         STATE_OVER_RELEASE
     }
 
+
     protected HiRefreshState mState = HiRefreshState.STATE_INIT;
-   //触发下拉刷新需要的最小高度
-    private int mPullRefreshHeight;
-
     /**
-     * 下拉刷新不跟手（最小阻尼）
-     * @param context
+     * 触发下拉刷新 需要的最小高度
      */
-    private float minDamp = 1.6f;
-
+    public int mPullRefreshHeight;
     /**
-     * 下拉刷新不跟手（最大阻尼）
-     * @param context
+     * 最小阻尼
      */
-    private float maxDamp = 2.2f;
+    public float minDamp = 1.6f;
+    /**
+     * 最大阻尼
+     */
+    public float maxDamp = 2.2f;
 
-
-    public HiOverView(@NonNull Context context) {
-        super(context);
+    public HiOverView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        preInit();
     }
 
-    public HiOverView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public HiOverView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        preInit();
     }
 
-    public HiOverView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public HiOverView(Context context) {
+        super(context);
+        preInit();
+    }
+
+    protected void preInit() {
+        mPullRefreshHeight = HiDisplayUtil.dp2px(66, getResources());
+        init();
     }
 
     /**
@@ -69,7 +73,7 @@ public abstract class HiOverView extends FrameLayout {
      */
     public abstract void init();
 
-    protected abstract void onScroll(int scrollY,int pullRefreshHeight);
+    protected abstract void onScroll(int scrollY, int pullRefreshHeight);
 
     /**
      * 显示Overlay
@@ -82,28 +86,31 @@ public abstract class HiOverView extends FrameLayout {
     public abstract void onOver();
 
     /**
-     * 正在刷新
+     * 开始加载
      */
     public abstract void onRefresh();
 
     /**
-     * 刷新完成
+     * 加载完成
      */
     public abstract void onFinish();
 
     /**
-     * 获取刷新状态
-     * @return
+     * 设置状态
+     *
+     * @param state 状态
+     */
+    public void setState(HiRefreshState state) {
+        mState = state;
+    }
+
+    /**
+     * 获取状态
+     *
+     * @return 状态
      */
     public HiRefreshState getState() {
         return mState;
     }
 
-    /**
-     * 设置刷新状态
-     * @param state
-     */
-    public void setState(HiRefreshState state) {
-        this.mState = state;
-    }
 }

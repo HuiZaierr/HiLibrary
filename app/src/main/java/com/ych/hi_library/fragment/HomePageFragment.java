@@ -8,6 +8,7 @@ import com.ych.common.ui.component.HiBaseFragment;
 import com.ych.hi_library.R;
 import com.ych.hi_library.demo.DataBindingActivity;
 import com.ych.hi_library.demo.HiLogDemoActivity;
+import com.ych.hi_library.demo.HiRefreshDemoActivity;
 import com.ych.hi_library.demo.HiTabTopDemoActivity;
 
 public class HomePageFragment extends HiBaseFragment implements View.OnClickListener {
@@ -21,9 +22,11 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         Button btnHiLog = layoutView.findViewById(R.id.btnHiLog);
         Button btnDataBind = layoutView.findViewById(R.id.btnDataBind);
         Button btnTabTop = layoutView.findViewById(R.id.btnTabTop);
+        Button btnRefresh = layoutView.findViewById(R.id.btnRefresh);
         btnHiLog.setOnClickListener(this);
         btnDataBind.setOnClickListener(this);
         btnTabTop.setOnClickListener(this);
+        btnRefresh.setOnClickListener(this);
     }
 
     @Override
@@ -37,6 +40,9 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
                 break;
             case R.id.btnTabTop:
                 startActivity(new Intent(getActivity(), HiTabTopDemoActivity.class));
+                break;
+            case R.id.btnRefresh:
+                startActivity(new Intent(getActivity(), HiRefreshDemoActivity.class));
                 break;
         }
     }

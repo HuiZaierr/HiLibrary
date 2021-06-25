@@ -1,7 +1,5 @@
 package com.ych.hiui.refresh;
 
-import com.ych.hiui.tab.top.HiTabTop;
-
 public interface HiRefresh {
 
     /**
@@ -33,6 +31,6 @@ public interface HiRefresh {
 
         void onRefresh();
         //禁止刷新
-        void enableRefresh();
+        boolean enableRefresh();
     }
 }
