@@ -3,8 +3,10 @@ package com.ych.hi_library.fragment;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.ych.common.ui.component.HiBaseFragment;
+import com.ych.day01.SignatureUtils;
 import com.ych.hi_library.R;
 import com.ych.hi_library.demo.DataBindingActivity;
 import com.ych.hi_library.demo.HiLogDemoActivity;
@@ -19,6 +21,7 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
 
     @Override
     protected void initView() {
+        TextView homeTv = layoutView.findViewById(R.id.homeTv);
         Button btnHiLog = layoutView.findViewById(R.id.btnHiLog);
         Button btnDataBind = layoutView.findViewById(R.id.btnDataBind);
         Button btnTabTop = layoutView.findViewById(R.id.btnTabTop);
@@ -27,6 +30,7 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         btnDataBind.setOnClickListener(this);
         btnTabTop.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
+        homeTv.setText(SignatureUtils.signatureParams("userName=240336124&userPwd=123456"));
     }
 
     @Override
