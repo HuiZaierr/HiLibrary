@@ -11,6 +11,7 @@ class MAppliaction: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        com.ych.hilibrary.manager.ActivityManager.instance.init(this)
         //配置Log信息
         HiLogManager.init(object :HiLogConfig(){
             //全局的Tag

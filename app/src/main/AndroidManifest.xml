@@ -11,11 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".demo.HiRefreshDemoActivity"></activity>
+        <activity android:name=".SecondActivity"></activity>
+        <activity android:name=".demo.HiRefreshDemoActivity" />
         <activity android:name=".demo.HiTabTopDemoActivity" />
         <activity android:name=".demo.DataBindingActivity" />
         <activity android:name=".demo.HiLogDemoActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:permission="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
