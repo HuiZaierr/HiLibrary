@@ -13,7 +13,7 @@ import com.ych.hi_library.demo.DataBindingActivity;
 import com.ych.hi_library.demo.HiLogDemoActivity;
 import com.ych.hi_library.demo.HiRefreshDemoActivity;
 import com.ych.hi_library.demo.HiTabTopDemoActivity;
-import com.ych.hilibrary.manager.ActivityManager;
+
 
 public class HomePageFragment extends HiBaseFragment implements View.OnClickListener {
     @Override
@@ -32,7 +32,7 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         btnDataBind.setOnClickListener(this);
         btnTabTop.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
-        homeTv.setText(SignatureUtils.signatureParams("userName=240336124&userPwd=123456"));
+//        homeTv.setText(SignatureUtils.signatureParams("userName=240336124&userPwd=123456"));
         homeTv.postInvalidateOnAnimation();
 
     }
@@ -41,8 +41,7 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnHiLog:
-                startActivity(new Intent(getActivity(), SecondActivity.class));
-//                 startActivity(new Intent(getActivity(),HiLogDemoActivity.class));
+                 startActivity(new Intent(getActivity(),HiLogDemoActivity.class));
                 break;
             case R.id.btnDataBind:
                 startActivity(new Intent(getActivity(), DataBindingActivity.class));

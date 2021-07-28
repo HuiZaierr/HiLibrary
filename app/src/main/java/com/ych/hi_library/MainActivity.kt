@@ -6,7 +6,6 @@ import android.view.KeyEvent
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.ych.hi_library.logic.MainActivityLogic
-import com.ych.hilibrary.manager.ActivityManager
 import com.ych.hilibrary.util.HiDataBus
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,13 +17,6 @@ class MainActivity : AppCompatActivity(), MainActivityLogic.ActivityProvider{
         //通过MianActivityLogic来进行处理MainActivity中的代码逻辑。
         var activityLogic = MainActivityLogic(this)
         HiDataBus.with<String>("stickyData").setStickyData("hahahahahahah")
-
-        //注册页面的监听，处于前台还是后台
-        ActivityManager.instance.addFrontBackCallback(object:ActivityManager.FrontBackCallback{
-            override fun onChange(front: Boolean) {
-                Toast.makeText(applicationContext, "当前处于："+front, Toast.LENGTH_LONG).show()
-            }
-        })
     }
 
 

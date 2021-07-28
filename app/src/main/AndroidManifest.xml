@@ -17,8 +17,7 @@
         <activity android:name=".demo.DataBindingActivity" />
         <activity android:name=".demo.HiLogDemoActivity" />
         <activity
-            android:name=".MainActivity"
-            android:permission="@string/app_name">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

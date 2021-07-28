@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.ych.hilibrary.manager.ActivityManager;
+
 
 import java.util.ArrayList;
 
@@ -26,12 +26,5 @@ public class SecondActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 //        recyclerView.setAdapter();
-       Activity activity = ActivityManager.Companion.getInstance().getTopActivity();
-       if (activity!=null){
-           textView.setText(activity.getLocalClassName());
-       }
-
-
-
     }
 }
