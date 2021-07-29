@@ -23,8 +23,10 @@ public class SecondActivity extends AppCompatActivity {
         for (int i = 0; i < 20; i++) {
             list.add(String.valueOf(i));
         }
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        linearLayoutManager.setReverseLayout(true); //表示反转布局，从下到上
+        linearLayoutManager.setStackFromEnd(true);  //表示正常布局，但是布局后会自动滚动到最后一个item位置
+        recyclerView.setLayoutManager(linearLayoutManager);
 //        recyclerView.setAdapter();
     }
 }
