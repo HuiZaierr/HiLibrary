@@ -24,7 +24,7 @@ abstract class HiDataItem<DATA,VH:RecyclerView.ViewHolder>(data:DATA) {
      * TODO:绑定本Item数据
      *   position：表示在列表上处于第几个
      */
-    abstract fun onBindData(holder:RecyclerView.ViewHolder,position: Int)
+    abstract fun onBindData(holder:VH,position: Int)
 
     /**
      * TODO:获取该item的布局资源id，
