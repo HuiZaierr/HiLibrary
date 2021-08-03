@@ -52,6 +52,9 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
             case R.id.btnRefresh:
                 startActivity(new Intent(getActivity(), HiRefreshDemoActivity.class));
                 break;
+            case R.id.naviigation:
+//                startActivity(new Intent(getActivity(), HiNavigationDemoActivity.class));
+                break;
         }
     }
 }
