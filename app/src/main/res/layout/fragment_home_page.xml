@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnTabTop" />
 
     <Button
-        android:id="@+id/naviigation"
+        android:id="@+id/btnNaviigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HiNavigationDemoActivity"

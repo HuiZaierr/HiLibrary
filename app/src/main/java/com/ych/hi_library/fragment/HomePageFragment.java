@@ -11,6 +11,7 @@ import com.ych.hi_library.R;
 import com.ych.hi_library.SecondActivity;
 import com.ych.hi_library.demo.DataBindingActivity;
 import com.ych.hi_library.demo.HiLogDemoActivity;
+import com.ych.hi_library.demo.HiNavigationDemoActivity;
 import com.ych.hi_library.demo.HiRefreshDemoActivity;
 import com.ych.hi_library.demo.HiTabTopDemoActivity;
 
@@ -28,10 +29,12 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         Button btnDataBind = layoutView.findViewById(R.id.btnDataBind);
         Button btnTabTop = layoutView.findViewById(R.id.btnTabTop);
         Button btnRefresh = layoutView.findViewById(R.id.btnRefresh);
+        Button btnNaviigation = layoutView.findViewById(R.id.btnNaviigation);
         btnHiLog.setOnClickListener(this);
         btnDataBind.setOnClickListener(this);
         btnTabTop.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
+        btnNaviigation.setOnClickListener(this);
 //        homeTv.setText(SignatureUtils.signatureParams("userName=240336124&userPwd=123456"));
         homeTv.postInvalidateOnAnimation();
 
@@ -52,8 +55,8 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
             case R.id.btnRefresh:
                 startActivity(new Intent(getActivity(), HiRefreshDemoActivity.class));
                 break;
-            case R.id.naviigation:
-//                startActivity(new Intent(getActivity(), HiNavigationDemoActivity.class));
+            case R.id.btnNaviigation:
+                startActivity(new Intent(getActivity(), HiNavigationDemoActivity.class));
                 break;
         }
     }

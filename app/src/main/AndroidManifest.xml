@@ -16,6 +16,7 @@
         <activity android:name=".demo.HiTabTopDemoActivity" />
         <activity android:name=".demo.DataBindingActivity" />
         <activity android:name=".demo.HiLogDemoActivity" />
+        <activity android:name=".demo.HiNavigationDemoActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

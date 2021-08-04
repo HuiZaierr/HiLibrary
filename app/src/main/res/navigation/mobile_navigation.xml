@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--app:startDestination="@id/navigation_home"   表示第一个显示的是哪一个页面-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.ych.hi_library.fragment.HomePageFragment"
+        android:label="Home"/>
+
+    <fragment
+        android:id="@+id/navigation_category"
+        android:name="com.ych.hi_library.fragment.CategoryFragment"
+        android:label="Category"
+        tools:layout="@layout/fragment_category"/>
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.ych.hi_library.fragment.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite"/>
+</navigation>
