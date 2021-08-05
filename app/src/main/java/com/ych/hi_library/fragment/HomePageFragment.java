@@ -1,10 +1,16 @@
 package com.ych.hi_library.fragment;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.facade.callback.NavCallback;
+import com.alibaba.android.arouter.facade.callback.NavigationCallback;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.ych.common.ui.component.HiBaseFragment;
 import com.ych.day01.SignatureUtils;
 import com.ych.hi_library.R;
@@ -14,6 +20,7 @@ import com.ych.hi_library.demo.HiLogDemoActivity;
 import com.ych.hi_library.demo.HiNavigationDemoActivity;
 import com.ych.hi_library.demo.HiRefreshDemoActivity;
 import com.ych.hi_library.demo.HiTabTopDemoActivity;
+import com.ych.hilibrary.log.HiLog;
 
 
 public class HomePageFragment extends HiBaseFragment implements View.OnClickListener {
@@ -30,12 +37,14 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         Button btnTabTop = layoutView.findViewById(R.id.btnTabTop);
         Button btnRefresh = layoutView.findViewById(R.id.btnRefresh);
         Button btnNaviigation = layoutView.findViewById(R.id.btnNaviigation);
+        Button btnArouter = layoutView.findViewById(R.id.btnArouter);
         btnHiLog.setOnClickListener(this);
         btnDataBind.setOnClickListener(this);
         btnTabTop.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
         btnNaviigation.setOnClickListener(this);
-//        homeTv.setText(SignatureUtils.signatureParams("userName=240336124&userPwd=123456"));
+        btnArouter.setOnClickListener(this);
+
         homeTv.postInvalidateOnAnimation();
 
     }
@@ -57,6 +66,36 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
                 break;
             case R.id.btnNaviigation:
                 startActivity(new Intent(getActivity(), HiNavigationDemoActivity.class));
+                break;
+            case R.id.btnArouter:
+                Bundle bundle = new Bundle();
+                bundle.putString("id","123456");
+                bundle.putString("name","张三");
+                bundle.putInt("age",26);
+                ARouter.getInstance()
+                        .build("/test/router1")
+                        .with(bundle)
+                        .navigation(getActivity(), new NavCallback() {
+                            @Override
+                            public void onFound(Postcard postcard) {
+                                HiLog.et("Test1Interceptor","找到了！！");
+                            }
+
+                            @Override
+                            public void onLost(Postcard postcard) {
+                                HiLog.et("Test1Interceptor","未找到！！");
+                            }
+
+                            @Override
+                            public void onArrival(Postcard postcard) {
+                                HiLog.et("Test1Interceptor","同意了");
+                            }
+
+                            @Override
+                            public void onInterrupt(Postcard postcard) {
+                                HiLog.et("Test1Interceptor","被拦截了");
+                            }
+                        });
                 break;
         }
     }
