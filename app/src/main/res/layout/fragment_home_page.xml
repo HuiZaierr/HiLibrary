@@ -60,4 +60,10 @@
         app:layout_constraintTop_toBottomOf="@+id/btnNaviigation" />
 
 
+    <Button
+        android:id="@+id/btnArouterDegrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ARoute降级操作"
+        app:layout_constraintTop_toBottomOf="@+id/btnArouter" />
 </androidx.constraintlayout.widget.ConstraintLayout>

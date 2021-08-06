@@ -3,7 +3,8 @@
     package="com.ych.hiui">
 
     <application>
-        <activity android:name=".arouter.RouterActivity"></activity>
+        <activity android:name=".arouter.RouterActivity" />
+        <activity android:name=".arouter.DegradeGlobalActivity" />
     </application>
 
 </manifest>

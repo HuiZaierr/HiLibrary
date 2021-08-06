@@ -15,9 +15,10 @@ import com.ych.hilibrary.log.HiLog;
  * TODO:ARouter拦截器
  *     Interceptor:
  *          priority:优先级
+ *          name:拦截器名称
  */
 @Interceptor(priority = 7,name = "login_interceptor")
-public class Test1Interceptor implements IInterceptor {
+public class BizInterceptor implements IInterceptor {
 
     private Context context;
 

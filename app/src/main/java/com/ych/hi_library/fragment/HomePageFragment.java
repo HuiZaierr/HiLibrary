@@ -38,12 +38,14 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         Button btnRefresh = layoutView.findViewById(R.id.btnRefresh);
         Button btnNaviigation = layoutView.findViewById(R.id.btnNaviigation);
         Button btnArouter = layoutView.findViewById(R.id.btnArouter);
+        Button btnArouterDegrade = layoutView.findViewById(R.id.btnArouterDegrade);
         btnHiLog.setOnClickListener(this);
         btnDataBind.setOnClickListener(this);
         btnTabTop.setOnClickListener(this);
         btnRefresh.setOnClickListener(this);
         btnNaviigation.setOnClickListener(this);
         btnArouter.setOnClickListener(this);
+        btnArouterDegrade.setOnClickListener(this);
 
         homeTv.postInvalidateOnAnimation();
 
@@ -83,6 +85,7 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
 
                             @Override
                             public void onLost(Postcard postcard) {
+                                //当定义的路由未找到时，我们通过自定义的DegradeServiceImpl来实现跳转到统一的错误页
                                 HiLog.et("Test1Interceptor","未找到！！");
                             }
 
@@ -96,6 +99,9 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
                                 HiLog.et("Test1Interceptor","被拦截了");
                             }
                         });
+                break;
+            case R.id.btnArouterDegrade:    //ARoute全局降级操作
+                ARouter.getInstance().build("/degrade/global/ac").navigation();
                 break;
         }
     }
