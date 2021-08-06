@@ -36,7 +36,7 @@ public class BizInterceptor implements IInterceptor {
             final AlertDialog.Builder ab = new AlertDialog.Builder(postcard.getContext());
             ab.setCancelable(false);
             ab.setTitle("温馨提醒");
-            ab.setMessage("想要跳转到RouterActivity么？(触发了\"//test/router1\"拦截器，拦截了本次跳转)");
+            ab.setMessage("想要跳转到RouterActivity么？(触发了\"/test/router1\"拦截器，拦截了本次跳转)");
             ab.setNegativeButton("继续", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
