@@ -36,7 +36,7 @@ class MAppliaction: Application() {
             }
             //打印堆栈的深度，如果为0，表示不打印
             override fun stackTraceDepth(): Int {
-                return 5
+                return 0
             }
             //配置Json转化器
             override fun injectJsonParser(): JsonParser {
