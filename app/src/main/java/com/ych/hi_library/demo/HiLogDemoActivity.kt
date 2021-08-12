@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.ych.hi_library.R
 import com.ych.hilibrary.log.*
 import com.ych.hilibrary.util.HiDataBus
 import kotlinx.android.synthetic.main.activity_hi_log_demo.*
+import kotlinx.coroutines.launch
 
 class HiLogDemoActivity : AppCompatActivity() {
     var viewPrinter:HiViewPrinter? = null
