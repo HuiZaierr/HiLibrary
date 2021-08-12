@@ -1,6 +1,6 @@
 package com.ych.hilibrary.restful
 
-open class HiResponse {
+open class HiResponse<T> {
 
     companion object{
         const val SUCCESS:Int = 0                   //访问成功
@@ -19,4 +19,10 @@ open class HiResponse {
         const val RC_AUTH_TOKEN_EXPIRED:Int = 4030  //访问Token过期，请重新设置
         const val RC_AUTH_TOKEN_INVALID:Int = 4031  //访问Token不正确，请重新设置
     }
+
+    var rawData:String? = null   //原始数据
+    var code = 0                 //业务状态吗
+    var data:T? = null           //业务数据
+    var errorData:Map<String,String>? = null    //错误状态下的数据
+    var msg:String? = null       //错误信息
 }
