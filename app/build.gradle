@@ -1,10 +1,39 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'channel'
+//apply from: '../channel.gradle'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+
+    //多渠道打包配置-------------- start ----------------
+    //产品维度，没有实际意义，但gradle要求
+//    flavorDimensions 'default'
+//
+//    //productFlavors是android节点的一个节点
+//    productFlavors {
+//        baidu {}
+//        xiaomi {}
+//        yyb{}
+//    }
+//
+//    //如果需要在不同渠道统一配置，使用productFlavors.all字段
+//    //替换manifest里面的channel_value的值
+//    productFlavors.all { flavor ->
+//            manifestPlaceholders = [channel_value:name]
+//    }
+//
+//    //设置渠道名称-> howow-xiaomi-release-1.0.apk
+//    applicationVariants.all{ variant ->
+//        variant.outputs.all { output ->
+//            //output即为该渠道最终的打包产物对象
+//            //设置它的outputFileName属性
+//            outputFileName = "howow_${variant.productFlavors[0].name}_${variant.buildType.name}_${variant.versionName}.apk"
+//        }
+//    }
+    //多渠道打包配置------------- end ----------------
 
     defaultConfig {
         applicationId "com.ych.hi_library"
@@ -65,8 +94,7 @@ dependencies {
     // Kotlin Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-    //ARouter
+    //ARouter阿里路由框架
     implementation 'com.alibaba:arouter-api:1.5.2'
     annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
-
 }
