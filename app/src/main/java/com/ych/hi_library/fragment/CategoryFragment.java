@@ -1,14 +1,18 @@
 package com.ych.hi_library.fragment;
 
+import android.content.res.Configuration;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
 
 import com.ych.common.ui.component.HiBaseFragment;
 import com.ych.coroutine.CoroutineScene;
 import com.ych.hi_library.R;
 import com.ych.hilibrary.executor.HiExecutor;
 import com.ych.hilibrary.log.HiLog;
+import com.ych.hilibrary.util.HiRes;
 
 public class CategoryFragment extends HiBaseFragment implements View.OnClickListener {
 
@@ -20,11 +24,19 @@ public class CategoryFragment extends HiBaseFragment implements View.OnClickList
     }
 
     @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        HiLog.et("TAG","CategoryFragment：onConfigurationChanged");
+    }
+
+    @Override
     protected void initView() {
         Button btnPriority =  layoutView.findViewById(R.id.btnPriority);
         btnPriority.setOnClickListener(this);
+        btnPriority.setTextColor(HiRes.Companion.getINSTANCE().getColor(R.color.color_d43));
         Button btnPauseResume =  layoutView.findViewById(R.id.btnPauseResume);
         btnPauseResume.setOnClickListener(this);
+        btnPauseResume.setTextColor(HiRes.Companion.getINSTANCE().getColor(R.color.color_4a4));
         Button btnAsyncTask =  layoutView.findViewById(R.id.btnAsyncTask);
         btnAsyncTask.setOnClickListener(this);
         Button btnStratCoroutine =  layoutView.findViewById(R.id.btnStratCoroutine);

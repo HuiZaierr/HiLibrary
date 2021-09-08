@@ -3,6 +3,7 @@ package com.ych.hilibrary.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,4 +64,16 @@ public class HiViewUtil {
         }
         return null;
     }
+
+    /**
+     * 检测当前是否是正常模式
+     * @return
+     */
+    public static Boolean isLightMode(){
+        int mode = AppGlobals.INSTANCE.get().getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK;
+        //不是暗黑模式
+        return mode == Configuration.UI_MODE_NIGHT_NO;
+    }
+
 }

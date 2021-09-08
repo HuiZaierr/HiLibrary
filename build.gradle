@@ -9,6 +9,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://repo1.maven.org/maven2/' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.1"
@@ -19,6 +20,8 @@ buildscript {
         // in the individual module build.gradle files
         //腾讯多渠道打包工具VasDolly
 //        classpath 'com.leon.channel:plugin:2.0.3'
+        //AspectJx
+//        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
     }
 }
 
@@ -26,9 +29,47 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://repo1.maven.org/maven2/' }
     }
 }
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task TaskA {
+    doFirst {
+        println "TaskA"
+    }
+}
+task TaskB {
+    doFirst {
+        println "TaskB"
+    }
+}
+
+//dependsOn表示依赖关系，执行任务TaskB之前必须先执行TaskA
+//TaskB.dependsOn TaskA
+
+//mustRunAfter表示在TaskA和TaskB任务都执行的情况下，才会触发，TaskA才会优先于TaskB
+//TaskB.mustRunAfter TaskA
+
+//finalizedBy表示给TaskB添加一个当前任务执行之后立刻执行TaskA
+TaskB.finalizedBy TaskA
+
+//打印出项目下所有Task的依赖关系
+//afterEvaluate {project ->
+//    //收集所有project的task集合
+//    Map<String,Set<Task>> allTasks = project.getAllTasks(true)
+//    //遍历每一个projetc下的Task集合
+//    allTasks.entrySet().each { projTasks ->
+//        projTasks.value.each {task ->
+//            System.out.println(task.getName());
+//            for (Object o :task.getDependsOn()){
+//                System.out.println("dependOn ——> ${o.toString()}");
+//            }
+//            System.out.println("------------------------------");
+//        }
+//    }
+//}

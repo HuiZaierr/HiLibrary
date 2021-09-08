@@ -1,9 +1,20 @@
 package com.yc.hidebugtool
 
+import android.app.ActivityManager
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.res.Configuration
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Process
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import com.ych.hi_ability.share.ShareBundle
+import com.ych.hi_ability.share.ShareManager
+import com.ych.hilibrary.fps.FpsMonitor
 import com.ych.hilibrary.util.AppGlobals
+import com.ych.hilibrary.util.HiViewUtil
 import com.ych.hilibrary.util.SPUtil
 
 class DebugTools{
@@ -38,6 +49,38 @@ class DebugTools{
         return "设备信息：${Build.BRAND}-${Build.VERSION.SDK_INT}-${Build.CPU_ABI}"
     }
 
+
+    @HiDebug(name = "打开/关闭fps",desc = "打开后可以查看页面实时的FPS")
+    fun toggleFps(){
+        FpsMonitor.toggle()
+    }
+
+    @HiDebug(name = "打开/关闭暗黑模式",desc = "打开暗黑模式在夜间使用更温和")
+    fun toggleTheme(){
+        //如果是正常的时候，打开暗黑，暗黑的时候关闭
+        if (HiViewUtil.isLightMode()){
+            //打开暗黑
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }else{
+            //关闭暗黑模式
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+    }
+
+    @HiDebug(name = "分享到QQ好友",desc = "卡片类型分享")
+    fun share2QQFriend(){
+        val shareBundle = ShareBundle()
+        shareBundle.title = ""
+        shareBundle.summary = ""
+        shareBundle.targetUrl = ""
+        shareBundle.thumbUrl = ""
+        shareBundle.appName = ""
+        shareBundle.appName = ""
+        val topActivity = com.ych.hilibrary.manager.ActivityManager.instance.topActivity
+        topActivity?.apply { ShareManager.share(topActivity,shareBundle) }
+    }
+
+
     /**
      * 使Https降级为Http
      */
@@ -53,5 +96,7 @@ class DebugTools{
         //杀掉当前进行，并主动启动新的启动页，以完成重启的动作
         Process.killProcess(Process.myPid())
     }
+
+
 
 }

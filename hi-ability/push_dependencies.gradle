@@ -1,0 +1,16 @@
+dependencies {
+    //友盟基础库相关依赖（必须）
+    api 'com.umeng.umsdk:common:9.4.0'
+    implementation 'com.umeng.umsdk:asms:1.2.3'
+    implementation 'com.umeng.umsdk:utdid:1.5.2.1'
+
+    //友盟Push相关依赖（必须）
+    api 'com.umeng.umsdk:push:6.3.3'
+    implementation 'com.umeng.umsdk:alicloud-httpdns:1.3.2.3'
+    implementation 'com.umeng.umsdk:alicloud-utils:2.0.0'
+    implementation 'com.umeng.umsdk:alicloud_beacon:1.0.5'
+    api 'com.umeng.umsdk:agoo-accs:3.4.2.7'
+    implementation 'com.umeng.umsdk:agoo_aranger:1.0.6'
+    implementation 'com.umeng.umsdk:agoo_networksdk:3.5.8'
+    implementation 'com.umeng.umsdk:agoo_tnet4android:3.1.14.10'
+}

@@ -111,7 +111,9 @@ object HiExecutor{
             //1.loading抛到主线程执行
             mainHandler.post { onPrepare() }
             //2.异步任务真正的执行
-            val t :T = onBackground();
+            val t :T? = onBackground();
+            //移除所有消息.防止需要执行onCompleted了，onPrepare还没被执行，那就不需要执行了
+            mainHandler.removeCallbacksAndMessages(null)
             //3.将异步任务执行结果抛到主线程处理
             mainHandler.post { onCompleted(t) }
         }
@@ -122,10 +124,10 @@ object HiExecutor{
         }
 
         //真正执行后台任务的，有返回值
-        abstract fun onBackground():T
+        abstract fun onBackground():T?
 
         //任务执行完成，净返回值抛到主线程当中
-        abstract fun onCompleted(t:T)
+        abstract fun onCompleted(t:T?)
 
     }
 
@@ -149,10 +151,14 @@ object HiExecutor{
     /**
      * TODO：线程池的暂停
      */
-    @Synchronized
     fun pause(){
-        isPause = true
-        HiLog.et(TAG,"hiExecutor is pause!!!")
+        lock.lock()
+        try {
+            isPause = true
+            HiLog.et(TAG,"hiExecutor is pause!!!")
+        } finally {
+            lock.unlock()
+        }
     }
 
     /**
@@ -160,15 +166,15 @@ object HiExecutor{
      */
     @Synchronized
     fun resume(){
-        isPause = false
-        HiLog.et(TAG,"hiExecutor is resume!!!")
         lock.lock()
         try {
+            isPause = false
             //唤醒所有await的线程
             pauseCondition.signalAll()
-        }finally {
+        } finally {
             lock.unlock()
         }
+        HiLog.et(TAG,"hiExecutor is resume!!!")
     }
 
 }

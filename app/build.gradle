@@ -3,6 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 //apply plugin: 'channel'
 //apply from: '../channel.gradle'
+//apply plugin: 'android-aspectjx'
+
+//aspectjx {
+//    //排除所有特定class文件
+//    exclude 'module-info','com.taobao'
+//}
+
 
 android {
     compileSdkVersion 30
@@ -82,10 +89,10 @@ dependencies {
     implementation project(path: ':hiui')
     implementation project(path: ':common')
     debugImplementation project(path: ':hidebugtool')
+    debugImplementation project(path: ':hi-ability')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-rc02'
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")

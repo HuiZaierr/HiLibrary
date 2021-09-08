@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -53,6 +54,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version")
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor "androidx.room:room-compiler:$room_version"
-
+    //添加AspectJ的依赖
+//    implementation 'org.aspectj:aspectjrt:1.8.9'
 
 }

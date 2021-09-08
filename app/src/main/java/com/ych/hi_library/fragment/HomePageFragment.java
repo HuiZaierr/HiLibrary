@@ -1,20 +1,18 @@
 package com.ych.hi_library.fragment;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.Postcard;
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.facade.callback.NavCallback;
-import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.ych.common.ui.component.HiBaseFragment;
-import com.ych.day01.SignatureUtils;
 import com.ych.hi_library.R;
-import com.ych.hi_library.SecondActivity;
 import com.ych.hi_library.demo.DataBindingActivity;
 import com.ych.hi_library.demo.HiLogDemoActivity;
 import com.ych.hi_library.demo.HiNavigationDemoActivity;
@@ -48,7 +46,8 @@ public class HomePageFragment extends HiBaseFragment implements View.OnClickList
         btnArouterDegrade.setOnClickListener(this);
 
         homeTv.postInvalidateOnAnimation();
-
+        ObjectAnimator animator = ObjectAnimator.ofFloat(btnHiLog,"trx",1f);
+        animator.start();
     }
 
     @Override

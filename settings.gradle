@@ -1,3 +1,44 @@
+include ':hi-ability'////1.在Settings.gradle配置如下代码监听构建声明周期阶段回掉
+//gradle.buildStarted {
+//    //开始解析Settings.gradle中所有include project，解析完成之后就会回掉gradle.projectLoaded方法
+//    println "项目构建开始..."
+//}
+//
+////2.初始化阶段完成
+//gradle.projectsLoaded {
+//    println "从Settings.gradle解析完成参与构建的所有项目..."
+//}
+//
+////3.配置阶段开始  解析每一个project/build.gradle
+//gradle.beforeProject { proj ->
+//    println "${proj.name} build.gradle解析之前"
+//}
+//gradle.afterProject { proj ->
+//    println "${proj.name} build.gradle解析完成"
+//}
+//gradle.projectsEvaluated { proj ->
+//    println "所有项目的build.gradle解析配置完成"
+//}
+//
+////当想要监听每一个Task的执行情况，我们可以使用getTaskGraph注册一个监听。
+//gradle.getTaskGraph().addTaskExecutionListener(new TaskExecutionListener() {
+//    //某个任务开始执行前
+//    @Override
+//    void beforeExecute(Task task) {
+//        println "任务执行：start${task.name}"
+//    }
+//
+//    @Override
+//    void afterExecute(Task task, TaskState state) {
+//        println "任务执行：end${task.name}"
+//    }
+//})
+//
+////4.所有项目构建完成回掉该方法
+//gradle.buildFinished {
+//    println "项目构建结束..."
+//}
+
 include ':hidebugtool'
 include ':common'
 include ':hiui'

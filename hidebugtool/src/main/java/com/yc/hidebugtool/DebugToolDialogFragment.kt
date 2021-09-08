@@ -91,6 +91,7 @@ class DebugToolDialogFragment :AppCompatDialogFragment(){
             }
         }
 
+
         override fun getItemCount(): Int {
             return list.size
         }
@@ -111,6 +112,7 @@ class DebugToolDialogFragment :AppCompatDialogFragment(){
             //是否可以点击
             if (debugFunction.enable){
                 holder.itemView.setOnClickListener {
+                    dismiss()
                     debugFunction.invoke()
                 }
             }

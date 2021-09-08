@@ -14,7 +14,7 @@ class ActivityManager private constructor(){
     private val activityRefs = ArrayList<WeakReference<Activity>>()
     private val frontbackCallback = ArrayList<FrontBackCallback>()
     private var activityStartCount = 0  //默认是在后台显示
-    private var front = true            //默认是在前台的
+    public var front = true            //默认是在前台的
     /**
      * 获取栈顶Activity
      */

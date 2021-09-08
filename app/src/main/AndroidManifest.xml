@@ -10,14 +10,20 @@
         android:networkSecurityConfig="@xml/network_sercurity_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:maxAspectRatio="2.4"
+        android:minAspectRatio="1.0"
+        android:resizeableActivity="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".SecondActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"/>
         <activity android:name=".demo.HiRefreshDemoActivity" />
         <activity android:name=".demo.HiTabTopDemoActivity" />
         <activity android:name=".demo.DataBindingActivity" />
         <activity android:name=".demo.HiLogDemoActivity" />
         <activity android:name=".demo.HiNavigationDemoActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
