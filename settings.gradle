@@ -1,4 +1,10 @@
 include ':hi-ability'////1.在Settings.gradle配置如下代码监听构建声明周期阶段回掉
+include ':hidebugtool'
+include ':common'
+include ':hiui'
+include ':hilibrary'
+include ':app'
+rootProject.name = "hi-library"
 //gradle.buildStarted {
 //    //开始解析Settings.gradle中所有include project，解析完成之后就会回掉gradle.projectLoaded方法
 //    println "项目构建开始..."
@@ -39,9 +45,3 @@ include ':hi-ability'////1.在Settings.gradle配置如下代码监听构建声�
 //    println "项目构建结束..."
 //}
 
-include ':hidebugtool'
-include ':common'
-include ':hiui'
-include ':hilibrary'
-include ':app'
-rootProject.name = "hi-library"

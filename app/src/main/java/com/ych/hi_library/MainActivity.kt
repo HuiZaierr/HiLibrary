@@ -10,6 +10,7 @@ import androidx.core.os.TraceCompat
 import androidx.fragment.app.DialogFragment
 import com.ych.hi_library.logic.MainActivityLogic
 import com.ych.hilibrary.aspectj.MethodTrace
+import com.ych.hilibrary.design_mode.mvvm.User
 import com.ych.hilibrary.log.HiLog
 import com.ych.hilibrary.util.FoldableDeviceUtil
 import com.ych.hilibrary.util.HiDataBus
@@ -29,6 +30,13 @@ class MainActivity : AppCompatActivity(), MainActivityLogic.ActivityProvider{
 
         //通过MianActivityLogic来进行处理MainActivity中的代码逻辑。
         var activityLogic = MainActivityLogic(this)
+//        //发送一个对象
+//        var user = User()
+//        user.address = "花基地背离"
+//        user.nikeName = "闫长辉"
+//        HiDataBus.with<User>("stickyData").setStickyData(user)
+
+        //发送一个字符串
         HiDataBus.with<String>("stickyData").setStickyData("hahahahahahah")
 
         TraceCompat.endSection()
