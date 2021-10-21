@@ -110,7 +110,8 @@ class MainActivity : AppCompatActivity(), MainActivityLogic.ActivityProvider{
     }
 
     /**
-     * 该方法会在View的绘制流程结束后回掉，但是并没有进行网络请求数据，我们具体的时间可以根据顶部的Banner数据回掉来进行监听
+     * 该方法会在View的绘制流程结束后回掉，但是并没有进行网络请求数据，
+     * 我们具体的时间可以根据顶部的Banner数据回掉来进行监听
      */
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         TraceCompat.beginSection("MainActivity_onCreate")

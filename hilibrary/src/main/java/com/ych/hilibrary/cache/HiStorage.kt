@@ -15,6 +15,7 @@ object HiStorage{
     fun <T> savaCache(key:String,body:T){
         val cache = Cache()
         cache.key = key
+        //将我们需要保存的数据转换为二进制数据
         cache.data = toByteArray(body)
         CacheDatabase.get().cacheDao.saveCache(cache)
     }
@@ -23,7 +24,7 @@ object HiStorage{
         var cache = CacheDatabase.get().cacheDao.getCache(key)
         return (if (cache?.data!=null){
                 toObject(cache.data)
-              }else null)as T?
+              }else null)as? T
     }
 
     fun deleteCache(key:String){
@@ -44,6 +45,7 @@ object HiStorage{
             oos = ObjectOutputStream(baos)
             oos.writeObject(body)
             oos.flush()
+            return baos.toByteArray()
         }catch (ex:Exception){
             ex.printStackTrace()
         }finally {
@@ -54,6 +56,9 @@ object HiStorage{
     }
 
 
+    /**
+     * TODO:将二进制数组转换为Object对象
+     */
     private fun toObject(data:ByteArray?):Any?{
         var bais:ByteArrayInputStream? = null
         var ois:ObjectInputStream? = null

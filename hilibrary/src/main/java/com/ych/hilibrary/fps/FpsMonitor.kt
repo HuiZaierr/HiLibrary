@@ -119,14 +119,14 @@ object FpsMonitor {
             }
         }
 
-//        private fun startOverlaySettingActivity() {
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-//                application.startActivity(
-//                    Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-//                        Uri.parse("package:${application.packageName}"))
-//                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
-//            }
-//        }
+        private fun startOverlaySettingActivity() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                application.startActivity(
+                    Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:${application.packageName}"))
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            }
+        }
 
         /**
          * TODO：判断是否已经开始权限

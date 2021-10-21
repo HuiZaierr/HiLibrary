@@ -18,12 +18,14 @@ import java.io.StringWriter
 import java.text.SimpleDateFormat
 import java.util.*
 
-
+/**
+ * TODO:全局的Java Crash捕获，写入文件。
+ */
 object CrashHandler {
     const val CRASH_DIR = "crash_dir"
     const val TAG = "CrashHandler"
     init {
-        //设置我们自己的异常处理器
+        //设置我们自己的异常处理器(setDefaultUncaughtExceptionHandler对所有线程都有效)
         Thread.setDefaultUncaughtExceptionHandler(CaughtExceptionHandler())
     }
 

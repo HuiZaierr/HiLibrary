@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * TODO:事件总线，跨页面数据传递，那么就采用单例
  *      由于LiveData的粘性事件，当我们新注册的观察者时，他的mLastVersion默认为-1，此时可能
- *      存在小于LiveData的version的值，所以新注册的观察者也能收到消息。
+ *      存在小于LiveData发送数据的的version的值，所以新注册的观察者也能收到消息。
  *      源码：
             private void considerNotify(ObserverWrapper observer) {
                 if (!observer.mActive) {
