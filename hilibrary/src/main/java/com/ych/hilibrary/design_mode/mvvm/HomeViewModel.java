@@ -18,7 +18,7 @@ public class HomeViewModel extends ViewModel {
         MutableLiveData<User> liveData = new MutableLiveData<>();
         //数据的获取
         User user = new User();
-        user.setNikeName("nikeName");
+        user.setNikeName("nikeNamessss");
         user.setAddress("address");
         liveData.postValue(user);
         return liveData;
