@@ -1,12 +1,10 @@
 package com.ych.hi_library.fragment;
 
 import android.content.res.Configuration;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-
 import com.ych.common.ui.component.HiBaseFragment;
 import com.ych.coroutine.CoroutineScene;
 import com.ych.hi_library.R;
@@ -17,6 +15,7 @@ import com.ych.hilibrary.util.HiRes;
 public class CategoryFragment extends HiBaseFragment implements View.OnClickListener {
 
     private String TAG = "CategoryFragment";
+    private boolean pause = false;
 
     @Override
     public int getLayoutId() {
@@ -61,14 +60,15 @@ public class CategoryFragment extends HiBaseFragment implements View.OnClickList
                 }
                 break;
             case R.id.btnPauseResume:   //暂停恢复线程池
-                if (HiExecutor.INSTANCE.isPause()){
+                if (pause){
                     HiExecutor.INSTANCE.resume();
                 }else {
                     HiExecutor.INSTANCE.pause();
                 }
+                pause = !pause;
                 break;
             case R.id.btnAsyncTask:     //将异步任务回掉到主线程当中
-                HiExecutor.INSTANCE.executor(new HiExecutor.Callable<String>() {
+                HiExecutor.INSTANCE.executor(0,new HiExecutor.Callable<String>() {
                     @Override
                     public void onCompleted(String s) {
                         String name = Thread.currentThread().getName();

@@ -2,67 +2,84 @@ package com.ych.hiui.item
 
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewParent
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * TODO:每个item的数据类
- *     泛型1：DATA表示每一个item的数据实体类
- *     泛型2：对应的ViewHolder
- *     所以我们基于HiDataItem来构建相对应的；
- *          TopTabItem，BannerDataItem,ActivityItem,GridItem等等
-
+ * TODO：数据类的基类
  */
-abstract class HiDataItem<DATA,VH:RecyclerView.ViewHolder>(data:DATA) {
-    private lateinit var mAdapter: HiAdapter
-    var mData:DATA? = null
+abstract class HiDataItem<Data,VH:RecyclerView.ViewHolder>(data:Data?) {
 
+    private var mAdapter: HiAdapter? = null
+    var mData:Data? = null
+
+    //进行赋值
     init {
         this.mData = data
     }
 
     /**
-     * TODO:绑定本Item数据
-     *   position：表示在列表上处于第几个
+     * TODO：数据绑定
      */
-    abstract fun onBindData(holder:VH,position: Int)
+    abstract fun onBindData(holder: VH,position:Int)
 
     /**
-     * TODO:获取该item的布局资源id，
-     *      当不想使用布局文件时可以通过getItemView，直接获取一个View对象来当作item视图
+     * TODO：获取Item对应的布局资源文件
      */
     open fun getItemLayoutRes():Int{
-        return -1;
+        return -1
     }
 
     /**
-     * TODO:获取本item视图View
+     * TODO：返回可能有些不想写布局文件，直接new一个组件
      */
     open fun getItemView(parent: ViewGroup):View?{
         return null
     }
 
-    fun setAdapter(adapter: HiAdapter){
-        this.mAdapter = adapter
-    }
-
     /**
-     * TODO:刷新列表
+     * TODO：設置Adapter
+     */
+    fun setAdapter(hiAdapter: HiAdapter){
+        this.mAdapter = hiAdapter
+    }
+    
+    /**
+     * TODO：刷新列表
      */
     fun refreshItem(){
-        mAdapter.refreshItem(this)
+        if (mAdapter != null) {
+            mAdapter!!.refreshItem(this)
+        }
     }
 
     /**
-     * TODO:从列表上移除Item
+     * TODO：从列表上移除
      */
     fun removeItem(){
-        mAdapter.removeItem(this)
+        if (mAdapter != null) {
+            mAdapter!!.removeItem(this)
+        }
     }
 
     /**
-     * TODO：该Item在列表上占据几列，当我们使用网格布局，瀑布流布局时
+     * 该item在列表上占几列
      */
     fun getSpanSize():Int{
         return 0
+    }
+
+    /**
+     * 该item被滑进屏幕
+     */
+    open fun onViewAttachedToWindow(holder: VH) {
+
+    }
+
+    /**
+     * 该item被滑出屏幕
+     */
+    open fun onViewDetachedFromWindow(holder: VH) {
+
     }
 }
