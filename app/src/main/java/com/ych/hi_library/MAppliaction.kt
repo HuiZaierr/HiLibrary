@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.core.os.TraceCompat
+import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.gson.Gson
 import com.ych.hi_ability.HiAbility
@@ -22,6 +23,7 @@ class MAppliaction: Application() {
         TraceCompat.beginSection("MAppliaction_attachBaseContext")
         super.attachBaseContext(base)
         TraceCompat.endSection()
+        MultiDex.install(this)
     }
 
     override fun onCreate() {

@@ -20,6 +20,7 @@ object CoroutineScene{
      */
     fun startScene1(){
         HiLog.e(TAG,"coroutine is running")
+        //并不会阻塞当前线程。
         val job = GlobalScope.launch(Dispatchers.Main,CoroutineStart.LAZY) {
             val request1 = request1()
             val request2 = request2(request1)

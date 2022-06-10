@@ -8,6 +8,8 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+        buildConfigField 'int', 'API_ENV', "" + apiEnv + ""
+
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -34,7 +36,19 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            /**
+             * 参数1：字段类型
+             * 参数2：字段名称
+             * 参数3：返回值
+             */
+            buildConfigField("String","BUILD_TIME","\""+ buildTime() + "\"")
+        }
     }
+}
+
+def buildTime(){
+    return new Date().format("EE HH:mm:ss",TimeZone.getTimeZone("GMT+08:00"))
 }
 
 dependencies {

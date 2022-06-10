@@ -1,0 +1,83 @@
+ext {
+
+    //0：正式 1：测试 2：预发布
+    apiEnv = 1
+
+    //建立Map存储，对象名 key都可以自定义。
+    androidId = [
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.3",
+            minSdkVersion    : 16,
+            targetSdkVersion : 30,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
+    //包名,根据不同的Model配置不同的包名
+    appId = [
+            appRelease: "com.ych.app",
+            appDebug: "com.ych.app.test",
+            appBeat: "com.ych.app.beat",
+    ]
+
+    //地址
+    url = [
+            debug  : "https://www.baidu.com/",
+            beat   : "https://www.baidu.com/",
+            release: "https://www.google.com.hk/",
+    ]
+
+    dependencies_App = [
+            //androidx支持库的multidex库
+            multidex: 'androidx.multidex:multidex:2.0.1',
+
+    ]
+
+
+    //公共的
+    dependencies_Common = [
+            //网络
+            okhttp: "com.squareup.okhttp3:okhttp:3.5.0",
+            okhttpLogging :"com.squareup.okhttp3:logging-interceptor:3.5.0",
+            rxandroid: "io.reactivex.rxjava2:rxandroid:2.1.1",
+            rxjava: "io.reactivex.rxjava2:rxjava:2.1.7",
+            retrofit: "com.squareup.retrofit2:retrofit:2.6.1",
+            retrofitAdapter: "com.squareup.retrofit2:adapter-rxjava2:2.6.1",
+            retrofitconverter: "com.squareup.retrofit2:converter-gson:2.6.1",
+            gson: "com.google.code.gson:gson:2.8.9",
+//            retrofitconverterMoshi: "com.squareup.retrofit2:converter-moshi:2.9.0",
+//            moshiKotlin:"com.squareup.moshi:moshi-kotlin:1.12.0",
+//            moshiKotlinCodegen :"com.squareup.moshi:moshi-kotlin-codegen:1.12.0",
+
+            //列表
+            recyclerView: 'androidx.recyclerview:recyclerview:1.2.1',
+            swiperefreshlayout: "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0",
+            BaseRecyclerViewAdapterHelper: 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7',
+
+            //工具
+            utilcodex: 'com.blankj:utilcodex:1.31.0',
+            rxpermissions: 'com.github.tbruyelle:rxpermissions:0.10.2',
+            glide: "com.github.bumptech.glide:glide:4.10.0",
+            immersionbar: 'com.gyf.immersionbar:immersionbar:3.0.0',
+            lottie: 'com.airbnb.android:lottie:4.1.0',
+            //骨骼屏
+            skeleton: 'com.ethanhua:skeleton:1.1.2',
+            shimmerlayout: 'io.supercharge:shimmerlayout:2.1.0',
+
+            //JetPack
+//            lifecycleExtensions : 'androidx.lifecycle:lifecycle-extensions:2.2.0-rc02',
+            livedata : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+            viewmodel : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+            lifecycleRuntime: "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version",
+            room: "androidx.room:room-runtime:2.2.0",
+            work : "androidx.work:work-runtime:2.7.1",
+            multidex:"androidx.multidex:multidex:2.0.1"
+
+    ]
+
+    dependencies_CommonApt = [
+            glideCompiler :'com.github.bumptech.glide:compiler:4.10.0',
+            roomCompiler : 'androidx.room:room-compiler:2.2.0',
+            arouterCompiler : 'com.alibaba:arouter-compiler:1.5.2'
+    ]
+}
