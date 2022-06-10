@@ -27,6 +27,18 @@
             android:textSize="28sp"
             tools:text="张三"
             android:text="@{user.address}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kotlin 挂起函数"
+            android:onClick="kotlinSuspended"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Java 挂起函数"
+            android:onClick="javaSuspended"/>
     </LinearLayout>
 
 </layout>

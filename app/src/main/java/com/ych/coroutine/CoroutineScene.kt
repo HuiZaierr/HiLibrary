@@ -3,6 +3,7 @@ package com.ych.coroutine
 import android.util.Log
 import com.ych.hilibrary.log.HiLog
 import kotlinx.coroutines.*
+import kotlin.coroutines.suspendCoroutine
 
 /**
  *
@@ -47,7 +48,6 @@ object CoroutineScene{
             updateUI2(deferred2.await(),deferred3.await())
         }
         job.start()
-
         HiLog.e(TAG,"coroutine has launched")
     }
 

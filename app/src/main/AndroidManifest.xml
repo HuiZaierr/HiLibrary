@@ -18,17 +18,23 @@
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"/>
         <activity android:name=".demo.HiRefreshDemoActivity" />
         <activity android:name=".demo.HiTabTopDemoActivity" />
-        <activity android:name=".demo.DataBindingActivity" />
-        <activity android:name=".demo.HiLogDemoActivity" />
-        <activity android:name=".demo.HiNavigationDemoActivity" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode">
+        <activity android:name=".demo.DataBindingActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".demo.HiLogDemoActivity" />
+        <activity android:name=".demo.HiNavigationDemoActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
     </application>
 

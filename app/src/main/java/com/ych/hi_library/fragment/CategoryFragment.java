@@ -7,10 +7,12 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import com.ych.common.ui.component.HiBaseFragment;
 import com.ych.coroutine.CoroutineScene;
+import com.ych.coroutine.CoroutineScene2_decompiled;
 import com.ych.hi_library.R;
 import com.ych.hilibrary.executor.HiExecutor;
 import com.ych.hilibrary.log.HiLog;
 import com.ych.hilibrary.util.HiRes;
+
 
 public class CategoryFragment extends HiBaseFragment implements View.OnClickListener {
 
