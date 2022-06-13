@@ -58,6 +58,14 @@
             android:text="获取自定义View的值"
             android:onClick="getName"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:text="MaterialButton"
+            android:background="@color/color_de3"
+            android:layout_margin="15dp"
+            app:cornerRadius="12dp"/>
     </LinearLayout>
 
 </layout>

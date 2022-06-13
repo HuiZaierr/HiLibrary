@@ -8,15 +8,25 @@
     </declare-styleable>
 
 
+    <!-- menuItemWidth：左侧Item的宽度
+         menuItemHeight：左侧Item的高度
+         menuItemTextSize：左侧Item文本的大小
+         menuItemSelectTextSize：左侧Item选中后文本的大小
+         menuItemTextColor：左侧Item文本的颜色
+         menuItemIndicator：左侧Item的指示器
+         menuItemBackgroundColor：左侧Item的背景
+         menuItemSelectBackgroundColor：左侧Item选中后的背景-->
     <declare-styleable name="HiSliderView">
-        <attr name="meniItemWidth" format="dimension"/>
-        <attr name="meniItemHeight" format="dimension"/>
-        <attr name="meniItemTextSize" format="dimension"/>
-        <attr name="meniItemSelectTextSize" format="dimension"/>
-        <attr name="meniItemTextColor" format="reference"/>
-        <attr name="meniItemIndicator" format="reference"/>
-        <attr name="meniItemBackgroundColor" format="color"/>
-        <attr name="meniItemSelectBackgroundColor" format="color"/>
+        <attr name="menuItemWidth" format="dimension"/>
+        <attr name="menuItemHeight" format="dimension"/>
+        <attr name="menuItemTextSize" format="dimension"/>
+        <attr name="menuItemSelectTextSize" format="dimension"/>
+        <attr name="menuItemIndicator" format="reference"/>
+        <attr name="menuItemTextColor" format="reference"/>
+        <attr name="menuItemBackgroundColor" format="color"/>
+        <attr name="menuItemSelectBackgroundColor" format="color"/>
+
+
     </declare-styleable>
 
 </resources>
