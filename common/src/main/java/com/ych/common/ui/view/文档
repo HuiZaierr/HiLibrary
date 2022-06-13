@@ -1,0 +1,31 @@
+1.使用：
+        <com.ych.common.ui.view.InputItemLayout
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="姓名"
+            app:hint="请输入姓名"
+            app:inputType="text"
+            app:inputTextAppearance="@style/inputTextAppearance"
+            app:titleTextAppearance="@style/titleTextAppearance"
+            app:topLineAppearance="@style/LineAppearance"
+            app:bottomLineAppearance="@style/LineAppearance" />
+
+2.页面Activity/Fragment中获取
+        //获取值
+        binding.etName.editText.text.toString()
+
+        //添加监听
+        binding.etName.editText.addTextChangedListener(object :TextWatcher{
+                    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+                    }
+
+                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                    }
+
+                    override fun afterTextChanged(s: Editable?) {
+
+                    }
+                })

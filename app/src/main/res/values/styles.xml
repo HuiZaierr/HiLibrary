@@ -15,4 +15,5 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/launch_splash</item>
     </style>
+
 </resources>

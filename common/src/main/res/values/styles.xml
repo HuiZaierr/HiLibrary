@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+<!--   <attr name="hintColor" format="color"></attr>
+        <attr name="inputColor" format="color"></attr>
+        <attr name="textSize" format="dimension"></attr>-->
+    <style name="inputTextAppearance">
+        <item name="hintColor">@color/color_4a4</item>
+        <item name="inputColor">@color/color_000</item>
+        <item name="textSize">14sp</item>
+    </style>
+
+    <!--  <attr name="titleColor" format="color"></attr>
+        <attr name="titleSize" format="dimension"></attr>
+        <attr name="minWidth" format="dimension"></attr>-->
+    <style name="titleTextAppearance">
+        <item name="titleColor">@color/color_000</item>
+        <item name="titleSize">14sp</item>
+        <item name="minWidth">100dp</item>
+        <item name="leftMar">15dp</item>
+    </style>
+
+    <!--    <attr name="color" format="color"></attr>
+        <attr name="height" format="dimension"></attr>
+        <attr name="leftMargin" format="dimension"></attr>
+        <attr name="rightMargin" format="dimension"></attr>
+        <attr name="enable" format="boolean"></attr>-->
+    <style name="LineAppearance">
+        <item name="color">@color/color_C1B</item>
+        <item name="height">0.5dp</item>
+        <item name="leftMargin">0dp</item>
+        <item name="rightMargin">0dp</item>
+        <item name="enable">true</item>
+    </style>
+</resources>

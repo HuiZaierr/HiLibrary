@@ -39,6 +39,25 @@
             android:layout_height="wrap_content"
             android:text="Java 挂起函数"
             android:onClick="javaSuspended"/>
+
+        <com.ych.common.ui.view.InputItemLayout
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:title="姓名"
+            app:hint="请输入姓名"
+            app:inputType="text"
+            app:inputTextAppearance="@style/inputTextAppearance"
+            app:titleTextAppearance="@style/titleTextAppearance"
+            app:topLineAppearance="@style/LineAppearance"
+            app:bottomLineAppearance="@style/LineAppearance" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取自定义View的值"
+            android:onClick="getName"/>
+
     </LinearLayout>
 
 </layout>

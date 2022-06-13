@@ -2,7 +2,11 @@ package com.ych.hi_library.demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.*
 import com.ych.coroutine.CoroutineScene2
@@ -22,12 +26,13 @@ private val globalScope = GlobalScope
 
 class DataBindingActivity : AppCompatActivity() {
     private val TAG:String = "DataBindingActivity"
+    private lateinit var binding:ActivityDataBindingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_data_binding)
 
-        var binding:ActivityDataBindingBinding = DataBindingUtil.setContentView(this,R.layout.activity_data_binding)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_data_binding)
         var model:HomeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         model.userInfo.observe(this, Observer {
             binding.user = it
@@ -78,5 +83,22 @@ class DataBindingActivity : AppCompatActivity() {
             val ccc = CoroutineScene3.parseAssetsFile(assets,"")
         }
 
+    }
+
+    fun getName(view: View) {
+        Toast.makeText(this, binding.etName.editText.text.toString(), Toast.LENGTH_SHORT).show()
+        binding.etName.editText.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
     }
 }
