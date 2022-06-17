@@ -7,34 +7,41 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:networkSecurityConfig="@xml/network_sercurity_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:maxAspectRatio="2.4"
         android:minAspectRatio="1.0"
+        android:networkSecurityConfig="@xml/network_sercurity_config"
         android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SecondActivity"
-            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout"/>
-        <activity android:name=".demo.HiRefreshDemoActivity" />
-        <activity android:name=".demo.HiTabTopDemoActivity" />
-        <activity android:name=".demo.DataBindingActivity" >
+        <activity android:name="com.ych.base.NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout" />
+        <activity android:name=".demo.HiRefreshDemoActivity" />
+        <activity android:name=".demo.HiTabTopDemoActivity" />
+        <activity android:name=".demo.DataBindingActivity">
+
+        </activity>
         <activity android:name=".demo.HiLogDemoActivity" />
         <activity android:name=".demo.HiNavigationDemoActivity" />
-        <activity android:name=".MainActivity"
-            android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode"
+            android:theme="@style/LaunchTheme">
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

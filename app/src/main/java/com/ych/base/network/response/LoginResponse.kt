@@ -1,9 +1,8 @@
-package com.ych.retrofit.response
+package com.ych.base.network.response
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
-//@Parcelize
+import java.io.Serializable
+
 data class LoginResponse(
     var institutionName: String = "",
     var address: String = "", // string
@@ -29,17 +28,18 @@ data class LoginResponse(
     var status: Int = 0, // 0
     var token: String = "", // string
     var username: String = "" // string
-   )
+):Serializable{
+    
+    data class Role(
+        var capability: String = "", // string
+        var description: String = "", // string
+        var id: Int = 0, // 0
+        var institutionId: Int = 0, // 0
+        var institutionIdArray: List<Int> = listOf(),
+        var institutionName: String = "", // string
+        var menuIds: List<Int> = listOf(),
+        var roleName: String = "", // string
+        var status: Int = 0 // 0
+    ): Serializable
+}
 
-@Parcelize
-data class Role(
-    var capability: String = "", // string
-    var description: String = "", // string
-    var id: Int = 0, // 0
-    var institutionId: Int = 0, // 0
-    var institutionIdArray: List<Int> = listOf(),
-    var institutionName: String = "", // string
-    var menuIds: List<Int> = listOf(),
-    var roleName: String = "", // string
-    var status: Int = 0 // 0
-): Parcelable

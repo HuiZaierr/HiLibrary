@@ -1,0 +1,18 @@
+在 Android 中使用协程的最佳做法
+
+1.注入调度程序
+在创建新协程或调用 withContext 时，请勿对 Dispatchers 进行硬编码。
+
+    //第一种：做注入调度程序
+    class NewsRepository(
+        //默认使用调度器为Dispatchers.Default
+        private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+    ) {
+        suspend fun loadNews() = withContext(defaultDispatcher) { /* ... */ }
+    }
+
+    //第二种：不采用硬编码形式
+    class NewsRepository {
+        // 不要使用Dispatchers。 默认为直接注入
+        suspend fun loadNews() = withContext(Dispatchers.Default) { /* ... */ }
+    }

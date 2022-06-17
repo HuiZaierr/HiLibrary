@@ -2,7 +2,8 @@ package com.ych.retrofit.response
 
 import java.io.Serializable
 
-open class BaseResponse {
+open class BaseResponse<T> {
+    val body:T? = null
     open val header: Header? = null
 }
 
