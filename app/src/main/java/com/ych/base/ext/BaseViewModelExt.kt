@@ -27,7 +27,7 @@ fun <T> BaseViewModel.request(
 ) {
     viewModelScope.launch {
         runCatching {
-            if (isShowDialog) loadingChange.showDialog.postValue("网络请求中...")
+            if (isShowDialog) loadingChange.showDialog.postValue(true)
             //请求体
             block()
         }.onSuccess {

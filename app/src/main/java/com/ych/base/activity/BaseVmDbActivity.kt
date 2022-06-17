@@ -1,16 +1,12 @@
 package com.ych.base.activity
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.ych.base.ext.getVmClazz
-import com.ych.base.ext.notNull
 import com.ych.base.ext.view.dismissLoadingExt
 import com.ych.base.ext.view.showLoadingExt
 import com.ych.base.viewmodel.BaseViewModel
@@ -60,20 +56,11 @@ abstract class BaseVmDbActivity <VM: BaseViewModel,DB:ViewDataBinding>:AppCompat
     private fun registerUiChange() {
         //显示弹窗
         mViewModel.loadingChange.showDialog.observe(this, Observer {
-            showLoading(it)
+            if (it) showLoadingExt()
         })
         //关闭弹窗
         mViewModel.loadingChange.dismissDialog.observe(this, Observer {
-            dismissLoading()
+            dismissLoadingExt()
         })
     }
-
-    open fun showLoading(message: String = "请求网络中..."){
-        showLoadingExt()
-    }
-
-    open fun dismissLoading(){
-        dismissLoadingExt()
-    }
-
 }
