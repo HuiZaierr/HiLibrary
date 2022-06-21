@@ -90,6 +90,7 @@ dependencies {
     implementation project(path: ':hilibrary')
     implementation project(path: ':hiui')
     implementation project(path: ':common')
+    //debugImplementation只有在debug阶段打进apk包中
     debugImplementation project(path: ':hidebugtool')
     debugImplementation project(path: ':hi-ability')
     testImplementation 'junit:junit:4.12'
