@@ -26,6 +26,7 @@ class DebugToolDialogFragment :AppCompatDialogFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //获取我们试图的跟布局android.R.id.content，我们可以进行修改宽高大小。
         val parent = dialog?.window?.findViewById<ViewGroup>(android.R.id.content)?:container
         val view = inflater.inflate(R.layout.hi_debug_tool,parent,false)
         //指定弹窗的宽高
@@ -121,7 +122,7 @@ class DebugToolDialogFragment :AppCompatDialogFragment(){
 
     /**
      * name：方法名称
-     * desc：方法藐视
+     * desc：方法描述
      * method：方法的实体
      * enable：是否可以点击，有些返回字符串不需要点击
      * target：方法所在类的对象
