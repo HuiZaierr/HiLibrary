@@ -29,5 +29,104 @@
             android:layout_height="wrap_content"
             android:text="加载loading"
             app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+        <!--
+            使用：
+                1.添加依赖：implementation 'com.google.android.material:material:1.1.0'
+                2.应用主题修改为：Theme.MaterialComponents.XXX.XXX
+            Chip组件style的种类：
+                1.Action:
+                    使用：style="@style/Widget.MaterialComponents.Chip.Action"
+                    默认前后图标都不展示，点击后没有选中状态
+                2.Choice：
+                    使用：style="@style/Widget.MaterialComponents.Chip.Choice"
+                    初始状态下，不展示前后图标，但是具有选中状态
+                3.Filter：
+                    使用：style="@style/Widget.MaterialComponents.Chip.Filter"
+                    初始状态下，不展示前后图标，点击之后会展示前面的选中图标，并且具有选中状态
+                4.Entry：
+                    使用：style="@style/Widget.MaterialComponents.Chip.Entry"
+                    默认在末尾展示删除按钮，点击后前面展示选中图标，有选中状态
+
+           Chip组件常用的属性：
+                app:chipCornerRadius="2dp"                          圆角半径
+                app:chipBackgroundColor="@color/colorAccent"        背景颜色
+                app:chipStrokeColor="@color/hi_tab_selected_color"  描边颜色
+                app:chipStrokeWidth="2dp"                           描边宽度
+                android:text="张三"                                 标签文本
+                app:chipIconVisible="true"                          文字前面图标是否展示
+                app:chipIcon="@drawable/launch_splash"              文字前面图标
+                app:chipIconTint="@color/color_00a"                 文字前面图标着色
+                app:closeIconVisible="false"                        文字后面图标是否展示
+                app:closeIcon="@drawable/rotate_daisy"              文字后面图标
+                app:closeIconTint="@color/color_4a4"                文字后面图标的着色
+                android:checkable="true"                            标签是否可以点击
+                app:checkedIconVisible="true"                       选中状态图标是否可以见
+                app:checkedIcon="@drawable/rotate_daisy"            选中态的图标
+                -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip"
+            app:layout_constraintTop_toBottomOf="@+id/btn_loading"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/Widget.MaterialComponents.Chip.Entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipCornerRadius="2dp"
+            app:chipBackgroundColor="@color/colorAccent"
+            app:chipStrokeColor="@color/hi_tab_selected_color"
+            app:chipStrokeWidth="2dp"
+            app:chipIconVisible="true"
+            app:chipIcon="@drawable/launch_splash"
+            app:chipIconTint="@color/color_00a"
+            app:closeIconVisible="true"
+            app:closeIcon="@drawable/rotate_daisy"
+            app:closeIconTint="@color/color_4a4"
+            android:checkable="true"
+            app:checkedIconVisible="true"
+            app:checkedIcon="@drawable/rotate_daisy"
+            android:text="张三"/>
+
+
+        <!--ChipGroup可以方便的实现 流式布局效果
+                默认情况下，ChipGroup中的chip会横向排列，当超过一行时会执行换行操作，如果不想让Chip换行，那么为ChipGroup添加app:singleLine="true"，
+                当超过一行，会在外层自动包裹HorizontalScrollView。
+              注意：
+                如果app:singleLine="false",那么app:chipSpacing="2dp"会同时控制Chips间的水平和垂直的间距
+                如果app:singleLine="true",那么app:chipSpacing="2dp"控制的是Chips之间的水平间距
+                如果设置了app:chipSpacing="2dp",也设置了app:chipSpacingHorizontal="5dp"和app:chipSpacingVertical="5dp"则app:chipSpacing="2dp"的值会被覆盖。
+
+            ChipGroup常用属性：
+                 app:checkedChip="@+id/xxx"                         初始选中的chip
+                 app:singleLine="true"                              设置单行显示，当超过一行，会在外层自动包裹HorizontalScrollView
+                 app:singleSelection="true"                         是否开启单选模式
+                 app:chipSpacing="2dp"                              chip间的间距
+                 app:chipSpacingHorizontal="5dp"                    Chip间的水平间距
+                 app:chipSpacingVertical="5dp"                      Chip间的垂直间距
+                -->
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:checkedChip="@+id/xxx"
+            app:chipSpacing="2dp"
+            app:singleLine="true"
+            app:chipSpacingHorizontal="5dp"
+            app:chipSpacingVertical="5dp"
+            app:singleSelection="true"
+            app:layout_constraintTop_toBottomOf="@+id/chip">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Entry"
+                android:text="哈哈"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="哈哈哈哈"/>
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="哈哈哈哈哈哈"/>
+        </com.google.android.material.chip.ChipGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
